@@ -19,16 +19,17 @@ Welcome to the **Elegant Jewelry Store** – a modern, sleek, and fully function
 
 ### 🖼 Home Page
 ![Homepage Screenshot](HomePage1.PNG)
-
+![Homepage Screenshot](HomePage2.PNG)
 
 ### 🛒 Cart Page
-*(Insert screenshot here)*
+![Homepage Screenshot](CartPage.PNG)
 
 ### 💳 Stripe Checkout
-*(Insert screenshot here)*
+![Homepage Screenshot](StripeCheckout1.PNG)
+![Homepage Screenshot](StripeCheckout2.PNG)
 
 ### ✅ Success Page
-*(Insert screenshot here)*
+![Homepage Screenshot](SuccessPage.PNG)
 
 ---
 
