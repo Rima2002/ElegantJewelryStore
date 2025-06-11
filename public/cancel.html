@@ -1,0 +1,70 @@
+<!-- cancel.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Canceled</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .status-page {
+      text-align: center;
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 480px;
+      background-color: #fff;
+    }
+
+    .status-page.cancel {
+      border-top: 6px solid #dc3545;
+    }
+
+    .status-page.cancel h1 {
+      color: #dc3545;
+    }
+
+    .status-page h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .status-page p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .back-btn {
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .back-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <main class="status-page cancel">
+    <h1>Payment Canceled</h1>
+    <p>Your transaction was not completed. You can return and try again.</p>
+    <a href="index.html" class="back-btn">Return to Store</a>
+  </main>
+</body>
+</html>

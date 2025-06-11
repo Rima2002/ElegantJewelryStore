@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elegant Jewelry Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background Video -->
+  <video autoplay muted loop id="background-video">
+    <source src="jewelry.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Header -->
+  <header class="logo-group">
+      <img src="images/logo.png" alt="Logo" class="logo" />
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Collections</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="cart.html">🛒</a>
+    </nav>
+  </header>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Discover Timeless Elegance</h2>
+      <p>Luxury Jewelry Crafted for You</p>
+      <a href="#product-grid" class="cta-button">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Filter/Search -->
+ <section class="controls">
+    <input type="text" id="search-bar" placeholder="Search jewelry..." />
+    <select id="category-filter">
+      <option value="all">All Categories</option>
+      <option value="necklace">Necklaces</option>
+      <option value="bracelet">Bracelets</option>
+      <option value="earring">Earrings</option>
+      <option value="ring">Rings</option>
+      <option value="set">Sets</option>
+    </select>
+  </section>
+
+  <!-- Product Grid -->
+  <main id="product-grid" class="product-grid">
+    <div class="product" data-name="Crystal Pendant" data-category="necklace">
+      <img src="images/necklace1.PNG" alt="Crystal Pendant">
+      <h3>Crystal Pendant</h3>
+      <p>$29.99</p>
+      <button onclick="addToCart('Crystal Pendant', 29.99)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Gold Cuff Bracelet" data-category="bracelet">
+      <img src="images/bracelet1.PNG" alt="Gold Cuff Bracelet">
+      <h3>Gold Cuff Bracelet</h3>
+      <p>$49.99</p>
+      <button onclick="addToCart('Gold Cuff Bracelet', 49.99)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Pearl Drop Earrings" data-category="earring">
+      <img src="images/earring1.PNG" alt="Pearl Drop Earrings">
+      <h3>Pearl Drop Earrings</h3>
+      <p>$39.99</p>
+      <button onclick="addToCart('Pearl Drop Earrings', 39.99)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Diamond Ring Replica" data-category="ring">
+      <img src="images/ring1.PNG" alt="Diamond Ring Replica">
+      <h3>Diamond Ring Replica</h3>
+      <p>$59.99</p>
+      <button onclick="addToCart('Diamond Ring Replica', 59.99)">Add to Cart</button>
+    </div>
+    <div class="product" data-name="Silver Jewelry Set" data-category="set">
+      <img src="images/set1.PNG" alt="Silver Jewelry Set">
+      <h3>Silver Jewelry Set</h3>
+      <p>$99.99</p>
+      <button onclick="addToCart('Silver Jewelry Set', 99.99)">Add to Cart</button>
+    </div>
+  </main>
+
+  <!-- Script -->
+  <script>
+    function addToCart(name, price) {
+      const image = event.target.closest('.product').querySelector('img').src.split('/').pop();
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price, image });
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      const alert = document.createElement('div');
+      alert.textContent = `${name} added to cart.`;
+      alert.className = 'cart-alert';
+      document.body.appendChild(alert);
+      setTimeout(() => alert.remove(), 2000);
+    }
+
+    const searchBar = document.getElementById('search-bar');
+    const categoryFilter = document.getElementById('category-filter');
+    const products = document.querySelectorAll('.product');
+
+    searchBar.addEventListener('input', filterProducts);
+    categoryFilter.addEventListener('change', filterProducts);
+
+    function filterProducts() {
+      const query = searchBar.value.toLowerCase();
+      const category = categoryFilter.value;
+      products.forEach(product => {
+        const name = product.getAttribute('data-name').toLowerCase();
+        const cat = product.getAttribute('data-category');
+        const show = name.includes(query) && (category === 'all' || category === cat);
+        product.style.display = show ? 'block' : 'none';
+        product.classList.toggle('filtered', query || category !== 'all');
+      });
+    }
+  </script>
+</body>
+</html>
