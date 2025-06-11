@@ -18,7 +18,7 @@ Welcome to the **Elegant Jewelry Store** – a modern, sleek, and fully function
 ## 📸 Screenshots
 
 ### 🖼 Home Page
-![Homepage Screenshot](images/HomePage1.PNG)
+![Homepage Screenshot](HomePage1.PNG)
 
 
 ### 🛒 Cart Page
